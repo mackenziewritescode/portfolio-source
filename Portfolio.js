@@ -3,6 +3,7 @@ import "./Portfolio.scss";
 import Obfuscate from "react-obfuscate";
 import { gsap } from "gsap";
 import { useIntersection } from "react-use"
+import pageChange from "./pageChange"
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import { BsChevronCompactDown } from "react-icons/bs";
@@ -24,11 +25,12 @@ function App() {
   const [page3Animation, setPage3Animation] = useState("initial")
   const [page4Animation, setPage4Animation] = useState(false)
 
+  const page2Threshold = 0.7;
   const page2Ref = useRef(null);
   const page2Intersection = useIntersection(page2Ref, {
     root: null,
     rootMargin: "0px",
-    threshold: 0.7
+    threshold: page2Threshold
   })
 
   const page3Threshold = 0.3;
@@ -106,7 +108,8 @@ function App() {
 
   // if page2 is loading for the first time, run the long animation
   if (!page2Animation) {
-    if (page2Intersection && page2Intersection.intersectionRatio > 0.7) {
+    if (page2Intersection && page2Intersection.intersectionRatio > page2Threshold) {
+      pageChange(2);
       fadeIn("#page-2-text-wrap")
       slideIn(".page-2-text");
       fadeDown(".page-2-bottom");
@@ -116,7 +119,8 @@ function App() {
 
   // every subsequent time page 2 animates, it does so quickly
   if (page2Animation) {
-    if (page2Intersection && page2Intersection.intersectionRatio > 0.7) {
+    if (page2Intersection && page2Intersection.intersectionRatio > page2Threshold) {
+      pageChange(2);
       fadeIn("#page-2-text-wrap")
       fadeIn(".page-2-text");
       fadeIn(".page-2-bottom");
@@ -182,6 +186,7 @@ function App() {
 
   if (page3Animation === "initial") {
     if (page3Intersection && page3Intersection.intersectionRatio > page3Threshold) {
+      pageChange(3);
       projectSlideIn(".project")
       slowFadeIn("#page-3-title")
       fadeInDelay(".page-3-bottom")
@@ -191,6 +196,7 @@ function App() {
 
   if (page3Animation === "visible") {
     if (page3Intersection.intersectionRatio < page3Threshold) {
+      pageChange(3);
       projectSlideOut(".project");
       fadeOut("#page-3-title")
       fadeOut(".page-3-bottom")
