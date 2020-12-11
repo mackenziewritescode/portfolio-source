@@ -3,7 +3,7 @@ import "./Portfolio.scss";
 import Obfuscate from "react-obfuscate";
 import { gsap } from "gsap";
 import { useIntersection } from "react-use"
-import pageChange from "./pageChange"
+import ScrollableSection from 'react-update-url-on-scroll';
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import { BsChevronCompactDown } from "react-icons/bs";
@@ -109,7 +109,6 @@ function App() {
   // if page2 is loading for the first time, run the long animation
   if (!page2Animation) {
     if (page2Intersection && page2Intersection.intersectionRatio > page2Threshold) {
-      pageChange(2);
       fadeIn("#page-2-text-wrap")
       slideIn(".page-2-text");
       fadeDown(".page-2-bottom");
@@ -120,7 +119,6 @@ function App() {
   // every subsequent time page 2 animates, it does so quickly
   if (page2Animation) {
     if (page2Intersection && page2Intersection.intersectionRatio > page2Threshold) {
-      pageChange(2);
       fadeIn("#page-2-text-wrap")
       fadeIn(".page-2-text");
       fadeIn(".page-2-bottom");
@@ -186,7 +184,6 @@ function App() {
 
   if (page3Animation === "initial") {
     if (page3Intersection && page3Intersection.intersectionRatio > page3Threshold) {
-      pageChange(3);
       projectSlideIn(".project")
       slowFadeIn("#page-3-title")
       fadeInDelay(".page-3-bottom")
@@ -196,7 +193,6 @@ function App() {
 
   if (page3Animation === "visible") {
     if (page3Intersection.intersectionRatio < page3Threshold) {
-      pageChange(3);
       projectSlideOut(".project");
       fadeOut("#page-3-title")
       fadeOut(".page-3-bottom")
@@ -300,47 +296,49 @@ function App() {
   return (
     <div id="portfolio-wrapper">
       {/* --------------------------------------------------  PAGE 1  */}
-      <div id="page-1" className="page">
-        <div id="page-1-cover">
-        </div>
-        <div className="main-text" id="page-1-main-text">
-          <p id="page-1-block-1">Hello.</p>
-          <p id="page-1-block-2">My name is Mackenzie.</p>
-          <p id="page-1-block-3">I'm a web developer.</p>
-        </div>
-        <p className="bottom-text" id="page-1-block-4">
-          Scroll down to learn more
+      <ScrollableSection name="page-1">
+        <div id="page-1" className="page">
+          <div id="page-1-cover">
+          </div>
+          <div className="main-text" id="page-1-main-text">
+            <p id="page-1-block-1">Hello.</p>
+            <p id="page-1-block-2">My name is Mackenzie.</p>
+            <p id="page-1-block-3">I'm a web developer.</p>
+          </div>
+          <p className="bottom-text" id="page-1-block-4">
+            Scroll down to learn more
         </p>
-        {arrows}
-
-
-      </div>
+          {arrows}
+        </div>
+      </ScrollableSection>
       {/* ------------------------------------------------  PAGE 2  */}
 
-      <div id="page-2" className="page" ref={page2Ref} >
+      <ScrollableSection name="page-2">
+        <div id="page-2" className="page" ref={page2Ref} >
 
-        <div id="page-2-text-wrap" >
-          <p className="main-text page-2-text" id="page-2-block-1">
-            I specialize in front-end web development.
+          <div id="page-2-text-wrap" >
+            <p className="main-text page-2-text" id="page-2-block-1">
+              I specialize in front-end web development.
             </p>
-          <p className="main-text page-2-text" id="page-2-block-2" >
-            (I make websites.)
+            <p className="main-text page-2-text" id="page-2-block-2" >
+              (I make websites.)
             </p>
-          <p className="main-text page-2-text" id="page-2-block-3">
-            Like this one!
+            <p className="main-text page-2-text" id="page-2-block-3">
+              Like this one!
             </p>
-        </div>
+          </div>
 
-        <p className="bottom-text page-2-bottom" >
-          check out some of my recent projects
+          <p className="bottom-text page-2-bottom" >
+            check out some of my recent projects
           </p>
-        <div className="arrows page-2-bottom">
-          <BsChevronCompactDown className="arrow" />
-          <BsChevronCompactDown className="arrow" />
-          <BsChevronCompactDown className="arrow" />
-        </div>
+          <div className="arrows page-2-bottom">
+            <BsChevronCompactDown className="arrow" />
+            <BsChevronCompactDown className="arrow" />
+            <BsChevronCompactDown className="arrow" />
+          </div>
 
-      </div>
+        </div>
+      </ScrollableSection>
       {/* ------------------------------------------------  PAGE 3  */}
       <div id="page-3" className="page" ref={page3Ref}>
         <h2 id="page-3-title">Projects</h2>
