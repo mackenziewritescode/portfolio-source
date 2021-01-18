@@ -3,11 +3,21 @@ import { useEffect, useState } from "react";
 export default function useIntersection(refs, threshold) {
   const [currentPage, setCurrentPage] = useState("");
 
+  // on load, check if a page is visible
+  useEffect(() => {
+    if (window.location.hash) {
+      const pageOnLoad = window.location.hash.substring(1);
+      setCurrentPage(pageOnLoad);
+      return currentPage;
+    }
+    // eslint-disable-next-line
+  }, []);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setCurrentPage(entry.target.id);
+          setCurrentPage(entry.target.dataset.page);
         }
       },
       { threshold }
@@ -21,8 +31,7 @@ export default function useIntersection(refs, threshold) {
       };
     });
     if (currentPage) {
-      window.history.pushState({ page: currentPage }, "", `#${currentPage}`);
-      console.log(currentPage);
+      window.history.replaceState({ page: currentPage }, "", `#${currentPage}`);
     }
   });
   return currentPage;

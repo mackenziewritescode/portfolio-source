@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { gsap } from "gsap";
 
 const slideIn = (e) => {
@@ -54,13 +55,24 @@ const fadeUp = (e) => {
   });
 };
 
-export default function page2Animations(count, page) {
-  if (window.location.hash === "#page-2") {
+let count = 0;
+
+export default function page2Animations(page2) {
+  if (page2) {
     if (count === 0) {
       fadeIn("#page-2-text-wrap");
       slideIn(".page-2-text");
       fadeDown(".page-2-bottom");
-      //   setTimeout(() => setPage2Animation(true), 4500);
+      setTimeout(() => (count = 1), 4500);
+    }
+    if (count > 0) {
+      fadeIn("#page-2-text-wrap");
+      fadeIn(".page-2-text");
+      fadeIn(".page-2-bottom");
+    } else {
+      fadeOut("#page-2-text-wrap");
+      slideOut(".page-2-text");
+      fadeUp(".page-2-bottom");
     }
   }
 }

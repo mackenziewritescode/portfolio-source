@@ -11,7 +11,7 @@ import infinitePhotosThumb from "./images/thumbs/infinite-photos.jpg";
 import intervalTimerThumb from "./images/thumbs/interval-timer.jpg";
 import markdownPreviewThumb from "./images/thumbs/markdown-preview.jpg";
 import usePage from "./usePage";
-import page2Animations from "./page2Animations";
+import page2Animations from "./components/page2Animations";
 
 function App() {
   const [page1Count, setPage1Count] = useState(0);
@@ -28,15 +28,6 @@ function App() {
   const threshold = 0.55;
 
   const currentPage = usePage(refs, threshold);
-
-  // const handleHistory = (e) => {
-  //   if (e.state && e.state.page) {
-  //     console.log("popstate: " + e.state.page);
-  //     window.location.replace(`#${e.state.page}`);
-  //   }
-  // };
-
-  // window.onpopstate = handleHistory;
 
   window.onload = () => {
     if (window.location.hash === "#page-2") {
@@ -179,32 +170,32 @@ function App() {
 
   // // ---------------------------- +-- Page 3 Animation Conditions --+
 
-  // if (page3Animation === "initial") {
-  //   if (page3Intersection && page3Intersection.intersectionRatio > 0.5) {
-  //     projectSlideIn(".project");
-  //     slowFadeIn("#page-3-title");
-  //     fadeInDelay(".page-3-bottom");
-  //     setTimeout(() => setPage3Animation("visible"), 3000);
-  //   }
-  // }
+  if (page3Animation === "initial") {
+    if (page3Intersection && page3Intersection.intersectionRatio > 0.5) {
+      projectSlideIn(".project");
+      slowFadeIn("#page-3-title");
+      fadeInDelay(".page-3-bottom");
+      setTimeout(() => setPage3Animation("visible"), 3000);
+    }
+  }
 
-  // if (page3Animation === "visible") {
-  //   if (page3Intersection.intersectionRatio < 0.5) {
-  //     projectSlideOut(".project");
-  //     fadeOut("#page-3-title");
-  //     fadeOut(".page-3-bottom");
-  //     setTimeout(() => setPage3Animation("invisible"), 1000);
-  //   }
-  // }
+  if (page3Animation === "visible") {
+    if (page3Intersection.intersectionRatio < 0.5) {
+      projectSlideOut(".project");
+      fadeOut("#page-3-title");
+      fadeOut(".page-3-bottom");
+      setTimeout(() => setPage3Animation("invisible"), 1000);
+    }
+  }
 
-  // if (page3Animation === "invisible") {
-  //   if (page3Intersection.intersectionRatio > 0.5) {
-  //     projectSlideInFast(".project");
-  //     fadeIn("#page-3-title");
-  //     fadeIn(".page-3-bottom");
-  //     setTimeout(() => setPage3Animation("visible"), 1000);
-  //   }
-  // }
+  if (page3Animation === "invisible") {
+    if (page3Intersection.intersectionRatio > 0.5) {
+      projectSlideInFast(".project");
+      fadeIn("#page-3-title");
+      fadeIn(".page-3-bottom");
+      setTimeout(() => setPage3Animation("visible"), 1000);
+    }
+  }
 
   // // ----------------------------------------- +-- Page 4 Animations --+
 
