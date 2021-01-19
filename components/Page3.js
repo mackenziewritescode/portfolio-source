@@ -36,15 +36,6 @@ const projectSlideInFast = (e) => {
   });
 };
 
-const projectSlideOut = (e) => {
-  gsap.to(e, {
-    duration: 0.5,
-    x: "-40",
-    opacity: 0,
-    ease: "power4.out",
-  });
-};
-
 const fadeInDelay = (e) => {
   gsap.to(e, {
     duration: 1,
@@ -66,6 +57,15 @@ const fadeIn = (e) => {
   });
 };
 
+const projectSlideOut = (e) => {
+  gsap.to(e, {
+    duration: 1,
+    opacity: 0,
+    x: "-40",
+    ease: "power4.out",
+  });
+};
+
 const fadeOut = (e) => {
   gsap.to(e, {
     duration: 1,
@@ -74,10 +74,10 @@ const fadeOut = (e) => {
   });
 };
 
-export default function Page3(currentPage) {
+export default function Page3(props) {
   const [page3Count, setPage3Count] = useState(0);
   const [inProgress, setInProgress] = useState(false);
-  const page3 = currentPage.currentPage === "page-3";
+  const page3 = props.pageVisible;
 
   useEffect(() => {
     // if an animation is not in progress, then animate:

@@ -59,10 +59,12 @@ const fadeUp = (e) => {
   });
 };
 
-export default function Page2(currentPage) {
+export default function Page2(props) {
   const [page2Count, setPage2Count] = useState(0);
   const [inProgress, setInProgress] = useState(false);
-  const page2 = currentPage.currentPage === "page-2";
+  const page2 = props.pageVisible;
+
+  console.log(page2);
 
   useEffect(() => {
     // if an animation is not in progress, then animate:

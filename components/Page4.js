@@ -65,10 +65,10 @@ const fadeOut = (e) => {
   });
 };
 
-export default function Page4(currentPage) {
+export default function Page4(props) {
   const [page4Count, setPage4Count] = useState(0);
   const [inProgress, setInProgress] = useState(false);
-  const page4 = currentPage.currentPage === "page-4";
+  const page4 = props.pageVisible;
 
   useEffect(() => {
     // if an animation is not in progress, then animate:
