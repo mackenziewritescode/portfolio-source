@@ -4,6 +4,7 @@ import Obfuscate from "react-obfuscate";
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import { gsap } from "gsap";
+import email from "./email";
 
 const fadeInStagger = (e) => {
   gsap.to(e, {
@@ -116,7 +117,7 @@ export default function Page4(props) {
       </p>
       <div id="contact-wrap">
         <Obfuscate
-          email="xxxxxxxxxx@gmail.com"
+          email={email}
           aria-label="Email"
           className="contact-circle"
           id="contact-email"
