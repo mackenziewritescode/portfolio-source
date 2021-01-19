@@ -4,7 +4,7 @@ import Obfuscate from "react-obfuscate";
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import { gsap } from "gsap";
-import email from "./email";
+import email from "./email"; // define an email address to run locally
 
 const fadeInStagger = (e) => {
   gsap.to(e, {
