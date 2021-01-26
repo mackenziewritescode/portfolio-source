@@ -71,7 +71,7 @@
   top: 0px;
   left: 0px;
   height: 100vh;
-  // overflow: scroll;  // --------- This line stopped the site from restoring scroll position!!! -----------------
+  // overflow: scroll; // --------- This line stopped the site from restoring scroll position!!! -----------------
   scroll-snap-type: y proximity;
   // scroll-snap-type: y;
 
