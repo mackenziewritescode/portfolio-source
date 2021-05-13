@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Portfolio.scss";
 import { BsChevronCompactDown } from "react-icons/bs";
+import restfulForumThumb from "../images/thumbs/restful-forum.jpg";
 import calculatorThumb from "../images/thumbs/calculator.jpg";
 import beatMachineThumb from "../images/thumbs/beat-machine.jpg";
 import infinitePhotosThumb from "../images/thumbs/infinite-photos.jpg";
 import intervalTimerThumb from "../images/thumbs/interval-timer.jpg";
-import markdownPreviewThumb from "../images/thumbs/markdown-preview.jpg";
+// import markdownPreviewThumb from "../images/thumbs/markdown-preview.jpg";
 import { gsap } from "gsap";
 
 const slowFadeIn = (e) => {
@@ -114,6 +115,40 @@ export default function Page3(props) {
     <div id="page-3" className="page">
       <h2 id="page-3-title">Projects</h2>
       <div id="project-wrap">
+        <div className="project">
+          <a
+            className="project-img-link"
+            href="http://www.sunkenworld.com/restful-forum"
+            alt=""
+          >
+            <img
+              className="project-img"
+              alt="Restful Forum"
+              src={restfulForumThumb}
+              width="300"
+              height="200"
+            ></img>
+          </a>
+          <h3 className="project-title">Restful Forum</h3>
+          <p className="project-description">
+            A web forum with a proprietary REST API made with React, Redux,
+            Node.js and MongoDB.
+          </p>
+          <a
+            className="project-link"
+            href="http://www.sunkenworld.com/restful-forum"
+            alt=""
+          >
+            Visit
+          </a>
+          <a
+            className="project-github"
+            href="https://github.com/mackenziewritescode/restful-forum"
+            alt=""
+          >
+            GitHub
+          </a>
+        </div>
         <div className="project">
           <a
             className="project-img-link"
@@ -248,7 +283,7 @@ export default function Page3(props) {
             GitHub
           </a>
         </div>
-        <div className="project">
+        {/* <div className="project">
           <a
             className="project-img-link"
             href="http://www.sunkenworld.com/markdown-app"
@@ -281,7 +316,7 @@ export default function Page3(props) {
           >
             GitHub
           </a>
-        </div>
+        </div> */}
       </div>
       <div className="arrows page-3-bottom">
         <BsChevronCompactDown className="arrow" />

@@ -64,8 +64,6 @@ export default function Page2(props) {
   const [inProgress, setInProgress] = useState(false);
   const page2 = props.pageVisible;
 
-  console.log(page2);
-
   useEffect(() => {
     // if an animation is not in progress, then animate:
     if (!inProgress) {
