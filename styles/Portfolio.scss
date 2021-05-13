@@ -58,16 +58,10 @@
 // // ----------------------------------  +- Page 1 -+
 
 #portfolio-wrapper {
-  //   // margin: 0;
-  //   // padding: 0;
-  //   // -moz-box-sizing: border-box;
-  //   // -webkit-box-sizing: border-box;
-  //   // box-sizing: border-box;
-
   font-family: "Roboto", sans-serif;
   position: absolute;
   width: 100%;
-  // min-width: 380px;
+  min-width: 360px;
   top: 0px;
   left: 0px;
   height: 100vh;
@@ -123,6 +117,9 @@
       color: rgba(0, 0, 0, 0.5);
       @media (max-width: 650px) {
         margin: 0 40px;
+      }
+      @include max-400 {
+        margin: 0 20px;
       }
     }
   }
@@ -377,6 +374,9 @@
       width: 300px;
       transform: translateX(-40px);
       opacity: 0;
+      @include max-900 {
+        margin: 20px 0px;
+      }
 
       .project-img-link {
         display: block;
@@ -479,6 +479,10 @@
       @include max-900 {
         font-size: 48px;
       }
+      @include max-600 {
+        font-size: 28px;
+        line-height: normal;
+      }
     }
 
     #page-4-block-1 {
@@ -529,6 +533,12 @@
         height: $diameter / 1.6;
         font-size: $icon-height / 1.6;
       }
+      @include max-600 {
+        width: $diameter / 2;
+        height: $diameter / 2;
+        font-size: $icon-height / 2;
+        margin: 15px;
+      }
     }
 
     .contact-icon {
@@ -539,6 +549,9 @@
 
       @include max-900 {
         margin-top: $diameter / 3.2 - $icon-height / 3.2;
+      }
+      @include max-600 {
+        margin-top: $diameter / 4 - $icon-height / 4;
       }
     }
 
