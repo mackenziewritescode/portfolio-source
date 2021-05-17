@@ -139,7 +139,7 @@ export default function Page4(props) {
           <a className="footer-link" href="http://www.sunkenworld.com/">
             Mackenzie Charlton
           </a>{" "}
-          in 2020 with{" "}
+          in 2021 with{" "}
           <a className="footer-link" href="https://reactjs.org">
             React
           </a>
