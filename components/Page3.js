@@ -6,7 +6,6 @@ import calculatorThumb from "../images/thumbs/calculator.jpg";
 import beatMachineThumb from "../images/thumbs/beat-machine.jpg";
 import infinitePhotosThumb from "../images/thumbs/infinite-photos.jpg";
 import intervalTimerThumb from "../images/thumbs/interval-timer.jpg";
-// import markdownPreviewThumb from "../images/thumbs/markdown-preview.jpg";
 import { gsap } from "gsap";
 
 const slowFadeIn = (e) => {
@@ -75,16 +74,15 @@ const fadeOut = (e) => {
   });
 };
 
-export default function Page3(props) {
+export default function Page3({ pageVisible }) {
   const [page3Count, setPage3Count] = useState(0);
   const [inProgress, setInProgress] = useState(false);
-  const page3 = props.pageVisible;
 
   useEffect(() => {
     // if an animation is not in progress, then animate:
     if (!inProgress) {
       // if the page is in focus:
-      if (page3) {
+      if (pageVisible) {
         // initial full animation:
         if (page3Count === 0) {
           setInProgress(true);
@@ -109,7 +107,7 @@ export default function Page3(props) {
         fadeOut(".page-3-bottom");
       }
     }
-  }, [page3, page3Count, inProgress]);
+  }, [pageVisible, page3Count, inProgress]);
 
   return (
     <div id="page-3" className="page">
@@ -283,40 +281,6 @@ export default function Page3(props) {
             GitHub
           </a>
         </div>
-        {/* <div className="project">
-          <a
-            className="project-img-link"
-            href="http://www.sunkenworld.com/markdown-app"
-            alt=""
-          >
-            <img
-              className="project-img"
-              alt="Markdown Preview"
-              src={markdownPreviewThumb}
-              width="300"
-              height="200"
-            ></img>
-          </a>
-          <h3 className="project-title">Markdown Preview</h3>
-          <p className="project-description">
-            A markup preview app that converts plain text written in Markdown to
-            rich text in real time, using React.
-          </p>
-          <a
-            className="project-link"
-            href="http://www.sunkenworld.com/markdown-app"
-            alt=""
-          >
-            Visit
-          </a>
-          <a
-            className="project-github"
-            href="https://github.com/mackenziewritescode/markdown-app"
-            alt=""
-          >
-            GitHub
-          </a>
-        </div> */}
       </div>
       <div className="arrows page-3-bottom">
         <BsChevronCompactDown className="arrow" />

@@ -11,15 +11,11 @@ export default function Portfolio() {
   const ref2 = useRef();
   const ref3 = useRef();
   const ref4 = useRef();
-  // const refs = [ref1, ref2, ref3, ref4];
-  // const threshold = 0.55;
 
   const page1Visible = useIntersection(ref1, "page-1", 0.55);
   const page2Visible = useIntersection(ref2, "page-2", 0.55);
   const page3Visible = useIntersection(ref3, "page-3", 0.25);
   const page4Visible = useIntersection(ref4, "page-4", 0.55);
-
-  // const currentPage = useIntersection(refs);
 
   return (
     <div id="portfolio-wrapper">

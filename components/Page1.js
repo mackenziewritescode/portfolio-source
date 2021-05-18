@@ -2,9 +2,7 @@ import React from "react";
 import "../styles/Portfolio.scss";
 import { BsChevronCompactDown } from "react-icons/bs";
 
-export default function Page1(currentPage) {
-  // const page1 = currentPage.currentPage === "page-1";
-
+export default function Page1() {
   return (
     <div id="page-1" className="page">
       <div id="page-1-cover"></div>

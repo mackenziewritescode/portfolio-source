@@ -66,16 +66,15 @@ const fadeOut = (e) => {
   });
 };
 
-export default function Page4(props) {
+export default function Page4({ pageVisible }) {
   const [page4Count, setPage4Count] = useState(0);
   const [inProgress, setInProgress] = useState(false);
-  const page4 = props.pageVisible;
 
   useEffect(() => {
     // if an animation is not in progress, then animate:
     if (!inProgress) {
       // if the page is in focus:
-      if (page4) {
+      if (pageVisible) {
         // initial full animation:
         if (page4Count === 0) {
           setInProgress(true);
@@ -97,7 +96,7 @@ export default function Page4(props) {
         scaleDown(".contact-circle");
       }
     }
-  }, [page4, page4Count, inProgress]);
+  }, [pageVisible, page4Count, inProgress]);
 
   return (
     <div id="page-4" className="page">

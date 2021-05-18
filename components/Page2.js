@@ -59,16 +59,15 @@ const fadeUp = (e) => {
   });
 };
 
-export default function Page2(props) {
+export default function Page2({ pageVisible }) {
   const [page2Count, setPage2Count] = useState(0);
   const [inProgress, setInProgress] = useState(false);
-  const page2 = props.pageVisible;
 
   useEffect(() => {
     // if an animation is not in progress, then animate:
     if (!inProgress) {
       // if the page is in focus:
-      if (page2) {
+      if (pageVisible) {
         // initial full animation:
         if (page2Count === 0) {
           setInProgress(true);
@@ -93,7 +92,7 @@ export default function Page2(props) {
         fadeUp(".page-2-bottom");
       }
     }
-  }, [page2, page2Count, inProgress]);
+  }, [pageVisible, page2Count, inProgress]);
 
   return (
     <div id="page-2" className="page">
